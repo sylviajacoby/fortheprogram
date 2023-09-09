@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import SearchBar from './SearchBar';
+import SearchResults from './SearchResults';
 
 function App() {
+  const data = ['Apple', 'Banana', 'Cherry', 'Date', 'Elderberry'];
+  const [filteredResults, setFilteredResults] = useState(data);
+
+  const handleSearch = (query) => {
+    const filteredData = data.filter((item) =>
+      item.toLowerCase().includes(query.toLowerCase())
+    );
+    setFilteredResults(filteredData);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Search Bar Example</h1>
+      <SearchBar data={data} onSearch={handleSearch} />
+      <SearchResults results={filteredResults} />
     </div>
   );
 }
