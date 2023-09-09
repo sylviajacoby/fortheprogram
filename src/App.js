@@ -4,7 +4,7 @@ import SearchBar from './SearchBar';
 import SearchResults from './SearchResults';
 
 function App() {
-  const data = ['Apple', 'Banana', 'Cherry', 'Date', 'Elderberry'];
+  const data = ['Apple', 'Banana', 'Cherry', 'Date', 'Elderberry', 'import holly keegan'];
   const [filteredResults, setFilteredResults] = useState(data);
 
   const handleSearch = (query) => {
